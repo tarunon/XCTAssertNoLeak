@@ -8,7 +8,7 @@ final class XCTAssertNoMemoryLeakTests: XCTestCase {
             var name: String = "name"
             var children: [NoMemoryLeakObject] = []
         }
-        assertNoMemoryLeak({ return NoMemoryLeakObject() }(), assert: { message, _, _  in
+        assertNoMemoryLeak(NoMemoryLeakObject(), assert: { message, _, _  in
             XCTFail("should not call assert if no memory leak")
         })
     }
@@ -18,9 +18,34 @@ final class XCTAssertNoMemoryLeakTests: XCTestCase {
             var strongSelf: MemoryLeakObject!
             init() { strongSelf = self }
         }
-        assertNoMemoryLeak({ return MemoryLeakObject() }(), assert: { message, _, _  in
+        assertNoMemoryLeak(MemoryLeakObject(), assert: { message, _, _  in
             XCTAssertEqual(message, makeAssertMessage([]))
         })
+    }
+    
+    func testAssertStrongDelegate() {
+        class ChildObject {
+            var delegate: ParentObject?
+        }
+        class ParentObject {
+            var child: ChildObject
+            
+            init() {
+                child = ChildObject()
+                child.delegate = self
+            }
+        }
+        var result = [String]()
+        assertNoMemoryLeak(ParentObject(), assert: { message, _, _ in
+            result.append(message)
+        })
+        XCTAssertEqual(
+            result,
+            [
+                makeAssertMessage([]),
+                makeAssertMessage([.label("child")])
+            ]
+        )
     }
 
     static var allTests = [

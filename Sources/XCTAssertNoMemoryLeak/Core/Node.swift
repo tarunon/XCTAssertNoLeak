@@ -49,15 +49,24 @@ class Node {
     weak var object: AnyObject?
     var children: [Path: Node]
     
-    init(from object: Any) {
+    convenience init(from object: Any) {
+        var discoveredObject = Set<ObjectIdentifier>()
+        self.init(from: object, discoveredObject: &discoveredObject)!
+    }
+    
+    init?(from object: Any, discoveredObject: inout Set<ObjectIdentifier>) {
         self.object = Node.filterValueType(object)
+        if let object = self.object {
+            if discoveredObject.contains(ObjectIdentifier(object)) { return nil }
+            discoveredObject.insert(ObjectIdentifier(object))
+        }
         let mirror = Mirror(reflecting: object)
         self.children = Dictionary(
             uniqueKeysWithValues: mirror.children
                 .enumerated()
-                .map { (index, child) in
+                .compactMap { (index, child) in
                     let path = child.label.map { Path.label($0) } ?? Path.index(index)
-                    let node = Node(from: child.value)
+                    guard let node = Node(from: child.value, discoveredObject: &discoveredObject) else { return nil}
                     return (path, node)
         })
     }
@@ -67,21 +76,10 @@ class Node {
         return value as AnyObject
     }
     
-    static func unwrapOptionalValue(_ value: Any) -> Any? {
-        if let kind = value as? OptionalKind {
-            guard let value = kind.optional else { return nil }
-            return unwrapOptionalValue(value)
-        } else {
-            return value
-        }
-    }
-    
     func leakedObjectPaths() -> [[Path]] {
-        if object != nil {
-            return [[]]
-        }
-        return children.flatMap { (path, node) in
-            return node.leakedObjectPaths().map { $0 + [path] }
+        return (object != nil ? [[]] : []) +
+            children.flatMap { (path, node) in
+                return node.leakedObjectPaths().map { $0 + [path] }
         }
     }
 }

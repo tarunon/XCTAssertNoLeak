@@ -15,7 +15,7 @@ func assertNoMemoryLeak(_ object: @autoclosure () -> AnyObject, assert: (String,
     var node: Node!
     autoreleasepool {
         var strongObject: AnyObject! = object()
-        node = Node(from: strongObject)
+        node = Node(from: strongObject!)
         strongObject = nil
     }
     node.leakedObjectPaths().forEach { (path) in

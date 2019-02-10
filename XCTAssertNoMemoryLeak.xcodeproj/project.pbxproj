@@ -79,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2AE7DF22210042A00B482AB /* Front */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* XCTAssertNoMemoryLeak.swift */,
+			);
+			path = Front;
+			sourceTree = "<group>";
+		};
 		D2CB4DD2220FEC9C00CB0A62 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				D2CB4DD2220FEC9C00CB0A62 /* Core */,
-				OBJ_9 /* XCTAssertNoMemoryLeak.swift */,
+				D2AE7DF22210042A00B482AB /* Front */,
 			);
 			name = XCTAssertNoMemoryLeak;
 			path = Sources/XCTAssertNoMemoryLeak;
