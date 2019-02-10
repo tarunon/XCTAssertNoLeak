@@ -2,14 +2,16 @@ import XCTest
 @testable import XCTAssertNoMemoryLeak
 
 final class XCTAssertNoMemoryLeakTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(XCTAssertNoMemoryLeak().text, "Hello, World!")
+    func testAssertNoMemoryLeak() {
+        class NoMemoryLeakObject {
+            var id: Int = 0
+            var name: String = "name"
+            var children: [NoMemoryLeakObject] = []
+        }
+        AssertNoMemoryLeak({ return NoMemoryLeakObject() }(), assert: { message, _, _  in XCTFail(message) })
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testAssertNoMemoryLeak", testAssertNoMemoryLeak),
     ]
 }
