@@ -7,8 +7,8 @@
 
 import Foundation
 
-func makeAssertMessage(_ path: [Path]) -> String {
-    return "Leaked Object Found: \(path.pathPrint)"
+func makeAssertMessage(path: String) -> String {
+    return "Leaked Object Found: \(path)"
 }
 
 func assertNoMemoryLeak(_ object: @autoclosure () -> AnyObject, assert: (String, StaticString, UInt) -> (), file: StaticString = #file, line: UInt = #line) {
@@ -19,6 +19,6 @@ func assertNoMemoryLeak(_ object: @autoclosure () -> AnyObject, assert: (String,
         strongObject = nil
     }
     node.leakedObjectPaths().forEach { (path) in
-        assert(makeAssertMessage(path), file, line)
+        assert(makeAssertMessage(path: path.pathString(with: "self")), file, line)
     }
 }

@@ -17,6 +17,24 @@ final class NodeTests: XCTestCase {
         }
     }
     
+    func testOptionalPath() {
+        class Foo {
+            var value: Int? = 1
+        }
+        let node = Node(from: Foo())
+        XCTAssertEqual(node.allPaths(), [[],[Path.label("value")], [Path.label("value"), Path.optional]])
+    }
+    
+    func testLazyPropertyPath() {
+        class Foo {
+            lazy var value = 1
+        }
+        let foo = Foo()
+        _ = foo.value
+        let node = Node(from: foo)
+        XCTAssertEqual(node.allPaths(), [[],[Path.label("value")]])
+    }
+    
     static var allTests = [
         ("testFilterValueType", testFilterValueType),
     ]

@@ -10,18 +10,29 @@ import Foundation
 enum Path: Hashable, CustomStringConvertible {
     case index(Int)
     case label(String)
+    case optional
     
     var description: String {
         switch self {
         case .index(let index): return "[\(index)]"
         case .label(let label): return ".\(label)"
+        case .optional: return "?"
+        }
+    }
+    
+    var lazyPath: Path? {
+        switch self {
+        case .label(let label) where label.hasSuffix(".storage"):
+            return Path.label(label.replacingOccurrences(of: ".storage", with: ""))
+        default:
+            return nil
         }
     }
 }
 
 extension Array where Element == Path {
-    var pathPrint: String {
-        return "self" + self.map { $0.description }.joined()
+    func pathString(with topObjectName: String) -> String {
+        return topObjectName + self.map { $0.description }.joined()
     }
 }
 
@@ -61,14 +72,27 @@ class Node {
             discoveredObject.insert(ObjectIdentifier(object))
         }
         let mirror = Mirror(reflecting: object)
-        self.children = Dictionary(
-            uniqueKeysWithValues: mirror.children
-                .enumerated()
-                .compactMap { (index, child) in
-                    let path = child.label.map { Path.label($0) } ?? Path.index(index)
-                    guard let node = Node(from: child.value, discoveredObject: &discoveredObject) else { return nil}
-                    return (path, node)
-        })
+        if let object = object as? OptionalKind {
+            if let value = object.optional, let node = Node(from: value, discoveredObject: &discoveredObject) {
+                children = [Path.optional: node]
+            } else {
+                children = [:]
+            }
+        } else {
+            self.children = Dictionary(
+                uniqueKeysWithValues: mirror.children
+                    .enumerated()
+                    .compactMap { (index, child) in
+                        let path = child.label.map { Path.label($0) } ?? Path.index(index)
+                        if let lazyPath = path.lazyPath {
+                            guard let value = (child.value as? OptionalKind)?.optional, let node = Node(from: value, discoveredObject: &discoveredObject) else { return nil }
+                            return (lazyPath, node)
+                        } else {
+                            guard let node = Node(from: child.value, discoveredObject: &discoveredObject) else { return nil }
+                            return (path, node)
+                        }
+            })
+        }
     }
     
     static func filterValueType(_ value: Any) -> AnyObject? {
@@ -79,7 +103,13 @@ class Node {
     func leakedObjectPaths() -> [[Path]] {
         return (object != nil ? [[]] : []) +
             children.flatMap { (path, node) in
-                return node.leakedObjectPaths().map { $0 + [path] }
+                return node.leakedObjectPaths().map { [path] + $0 }
+        }
+    }
+    
+    func allPaths() -> [[Path]] {
+        return [[]] + children.flatMap { path, node in
+            return node.allPaths().map { [path] + $0 }
         }
     }
 }

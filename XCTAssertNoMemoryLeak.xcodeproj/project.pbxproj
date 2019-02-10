@@ -56,8 +56,8 @@
 		OBJ_13 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_9 /* XCTAssertNoMemoryLeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTAssertNoMemoryLeak.swift; sourceTree = "<group>"; };
-		"XCTAssertNoMemoryLeak::XCTAssertNoMemoryLeak::Product" /* XCTAssertNoMemoryLeak.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCTAssertNoMemoryLeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"XCTAssertNoMemoryLeak::XCTAssertNoMemoryLeakTests::Product" /* XCTAssertNoMemoryLeakTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = XCTAssertNoMemoryLeakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"XCTAssertNoMemoryLeak::XCTAssertNoMemoryLeak::Product" /* XCTAssertNoMemoryLeak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCTAssertNoMemoryLeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"XCTAssertNoMemoryLeak::XCTAssertNoMemoryLeakTests::Product" /* XCTAssertNoMemoryLeakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = XCTAssertNoMemoryLeakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +209,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					"XCTAssertNoMemoryLeak::XCTAssertNoMemoryLeak" = {
+						LastSwiftMigration = 1020;
+					};
+					"XCTAssertNoMemoryLeak::XCTAssertNoMemoryLeakTests" = {
+						LastSwiftMigration = 1020;
+					};
+				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "XCTAssertNoMemoryLeak" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -294,7 +302,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = XCTAssertNoMemoryLeak;
 			};
 			name = Debug;
@@ -318,7 +326,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = XCTAssertNoMemoryLeak;
 			};
 			name = Release;
@@ -395,7 +403,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = XCTAssertNoMemoryLeakTests;
 			};
 			name = Debug;
@@ -416,7 +424,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = XCTAssertNoMemoryLeakTests;
 			};
 			name = Release;
