@@ -50,7 +50,7 @@ class Node {
     var children: [Path: Node]
     
     init(from object: Any) {
-        self.object = object as AnyObject
+        self.object = Node.filterValueType(object)
         let mirror = Mirror(reflecting: object)
         self.children = Dictionary(
             uniqueKeysWithValues: mirror.children
@@ -60,6 +60,20 @@ class Node {
                     let node = Node(from: child.value)
                     return (path, node)
         })
+    }
+    
+    static func filterValueType(_ value: Any) -> AnyObject? {
+        guard type(of: value) is AnyObject.Type else { return nil }
+        return value as AnyObject
+    }
+    
+    static func unwrapOptionalValue(_ value: Any) -> Any? {
+        if let kind = value as? OptionalKind {
+            guard let value = kind.optional else { return nil }
+            return unwrapOptionalValue(value)
+        } else {
+            return value
+        }
     }
     
     func leakedObjectPaths() -> [[Path]] {

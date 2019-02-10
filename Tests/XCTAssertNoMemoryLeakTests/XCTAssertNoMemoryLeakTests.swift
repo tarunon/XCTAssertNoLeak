@@ -8,7 +8,19 @@ final class XCTAssertNoMemoryLeakTests: XCTestCase {
             var name: String = "name"
             var children: [NoMemoryLeakObject] = []
         }
-        AssertNoMemoryLeak({ return NoMemoryLeakObject() }(), assert: { message, _, _  in XCTFail(message) })
+        assertNoMemoryLeak({ return NoMemoryLeakObject() }(), assert: { message, _, _  in
+            XCTFail("should not call assert if no memory leak")
+        })
+    }
+    
+    func testAssertMemoryLeak() {
+        class MemoryLeakObject {
+            var strongSelf: MemoryLeakObject!
+            init() { strongSelf = self }
+        }
+        assertNoMemoryLeak({ return MemoryLeakObject() }(), assert: { message, _, _  in
+            XCTAssertEqual(message, makeAssertMessage([]))
+        })
     }
 
     static var allTests = [
