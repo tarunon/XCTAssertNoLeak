@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		D2AE7DF1220FFBA600B482AB /* Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE7DF0220FFBA600B482AB /* Assert.swift */; };
+		D2AE7DF522185D6900B482AB /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE7DF422185D6900B482AB /* Context.swift */; };
 		D2CB4DD4220FECE100CB0A62 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB4DD3220FECE100CB0A62 /* Node.swift */; };
 		D2CB4DD9220FF86900CB0A62 /* NodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB4DD7220FF85100CB0A62 /* NodeTests.swift */; };
 		OBJ_22 /* XCTAssertNoMemoryLeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* XCTAssertNoMemoryLeak.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		D2AE7DF0220FFBA600B482AB /* Assert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assert.swift; sourceTree = "<group>"; };
+		D2AE7DF422185D6900B482AB /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		D2CB4DD3220FECE100CB0A62 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		D2CB4DD7220FF85100CB0A62 /* NodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTests.swift; sourceTree = "<group>"; };
 		OBJ_12 /* XCTAssertNoMemoryLeakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTAssertNoMemoryLeakTests.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				D2CB4DD3220FECE100CB0A62 /* Node.swift */,
+				D2AE7DF422185D6900B482AB /* Context.swift */,
 				D2AE7DF0220FFBA600B482AB /* Assert.swift */,
 			);
 			path = Core;
@@ -244,6 +247,7 @@
 			buildActionMask = 0;
 			files = (
 				D2CB4DD4220FECE100CB0A62 /* Node.swift in Sources */,
+				D2AE7DF522185D6900B482AB /* Context.swift in Sources */,
 				OBJ_22 /* XCTAssertNoMemoryLeak.swift in Sources */,
 				D2AE7DF1220FFBA600B482AB /* Assert.swift in Sources */,
 			);

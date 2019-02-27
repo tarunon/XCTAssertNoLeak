@@ -4,7 +4,13 @@ import XCTest
 final class XCTAssertNoMemoryLeakTests: XCTestCase {
     func assertMessages(_ object: @autoclosure () -> AnyObject) -> [String] {
         var result = [String]()
-        assertNoMemoryLeak(object(), assert: { message, _, _ in result.append(message) })
+        assertNoMemoryLeak(object(), assert: { message, _, _ in result.append(message) }, file: "", line: 0)
+        return result
+    }
+    
+    func assertMessages(_ f: @escaping (Context) -> ()) -> [String] {
+        var result = [String]()
+        assertNoMemoryLeak(f, assert: { message, _, _ in result.append(message) }, file: "", line: 0)
         return result
     }
     
@@ -72,14 +78,14 @@ final class XCTAssertNoMemoryLeakTests: XCTestCase {
     
     func testAssertOptionalProperty() {
         class ChildObject {
-            var delegate: ParentObject?
+            var strongDelegate: ParentObject?
         }
         class ParentObject {
             var child: ChildObject?
             
             init() {
                 child = ChildObject()
-                child?.delegate = self
+                child?.strongDelegate = self
             }
         }
         XCTAssertEqual(
@@ -93,13 +99,13 @@ final class XCTAssertNoMemoryLeakTests: XCTestCase {
     
     func testAssertLazyProperty() {
         class ChildObject {
-            var delegate: ParentObject?
+            var strongDelegate: ParentObject?
         }
         class ParentObject {
             lazy var child: ChildObject = ChildObject()
             
             init() {
-                child.delegate = self
+                child.strongDelegate = self
             }
         }
         XCTAssertEqual(
@@ -107,6 +113,47 @@ final class XCTAssertNoMemoryLeakTests: XCTestCase {
             [
                 makeAssertMessage(path: "self"),
                 makeAssertMessage(path: "self.child")
+            ]
+        )
+    }
+    
+    func testAssertClosure() {
+        class View {
+            var strongDelegate: AnyObject?
+        }
+        class ViewController {
+            lazy var view: View = loadView()
+            func loadView() -> View {
+                let view = View()
+                view.strongDelegate = self
+                return view
+            }
+        }
+        XCTAssertEqual(
+            assertMessages { context in
+                let vc = ViewController()
+                context.traverse(name: "vc", object: vc)
+            },
+            ["Context.completion() must call"]
+        )
+        XCTAssertEqual(
+            assertMessages { context in
+                let vc = ViewController()
+                context.traverse(name: "vc", object: vc)
+                context.completion()
+            },
+            []
+        )
+        XCTAssertEqual(
+            assertMessages { context in
+                let vc = ViewController()
+                _ = vc.view // load view
+                context.traverse(name: "vc", object: vc)
+                context.completion()
+            },
+            [
+                makeAssertMessage(path: "vc"),
+                makeAssertMessage(path: "vc.view")
             ]
         )
     }
@@ -118,5 +165,6 @@ final class XCTAssertNoMemoryLeakTests: XCTestCase {
         ("testAssertStrongDelegate", testAssertStrongDelegate),
         ("testAssertOptionalProperty", testAssertOptionalProperty),
         ("testAssertLazyProperty", testAssertLazyProperty),
+        ("testAssertClosure", testAssertClosure),
     ]
 }

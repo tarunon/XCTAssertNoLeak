@@ -37,5 +37,7 @@ final class NodeTests: XCTestCase {
     
     static var allTests = [
         ("testFilterValueType", testFilterValueType),
+        ("testOptionalPath", testOptionalPath),
+        ("testLazyPropertyPath", testLazyPropertyPath),
     ]
 }
