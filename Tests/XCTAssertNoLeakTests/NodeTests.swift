@@ -12,17 +12,22 @@ extension UIView: CustomTraversable {
 #endif
 
 final class NodeTests: XCTestCase {
-    func testFilterValueType() {
+    func testGetReferenceValue() {
         class Foo { }
         let object: Any = Foo()
-        if let unwrapped = Node.filterValueType(object) {
+        if let unwrapped = Node.getReferenceValue(object) {
             XCTAssertTrue(type(of: unwrapped) is Foo.Type)
         } else {
             XCTFail()
         }
         
         let value: Any = 1
-        if Node.filterValueType(value) != nil {
+        if Node.getReferenceValue(value) != nil {
+            XCTFail()
+        }
+
+        let optional = Optional(Foo()) as Any
+        if Node.getReferenceValue(optional) != nil {
             XCTFail()
         }
     }
@@ -30,6 +35,21 @@ final class NodeTests: XCTestCase {
     func testOptionalPath() {
         class Foo {
             var value: Int? = 1
+        }
+        let node = Node(from: Foo())
+        XCTAssertEqual(
+            node.allPaths(),
+            [
+                [],
+                [Path.label("value")],
+                [Path.label("value"), Path.optional]
+            ]
+        )
+    }
+    
+    func testImplicitlyUnwrappedOptionalPath() {
+        class Foo {
+            var value: Int! = 1
         }
         let node = Node(from: Foo())
         XCTAssertEqual(
@@ -81,7 +101,7 @@ final class NodeTests: XCTestCase {
     #endif
     
     static var allTests = [
-        ("testFilterValueType", testFilterValueType),
+        ("testGetReferenceValue", testGetReferenceValue),
         ("testOptionalPath", testOptionalPath),
         ("testLazyPropertyPath", testLazyPropertyPath),
     ]

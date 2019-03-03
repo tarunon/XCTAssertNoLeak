@@ -50,16 +50,6 @@ extension Optional: OptionalKind {
     }
 }
 
-protocol DictionaryKind {
-    var dictionary: [String: Any] { get }
-}
-
-extension Dictionary: DictionaryKind where Key == String {
-    var dictionary: [String : Any] {
-        return self.mapValues { $0 }
-    }
-}
-
 class Node {
     weak var object: AnyObject?
     var children: [Path: Node]
@@ -70,7 +60,7 @@ class Node {
     }
     
     init?(from object: Any, discoveredObject: inout Set<ObjectIdentifier>) {
-        self.object = Node.filterValueType(object)
+        self.object = Node.getReferenceValue(object)
         if let object = self.object {
             if discoveredObject.contains(ObjectIdentifier(object)) { return nil }
             discoveredObject.insert(ObjectIdentifier(object))
@@ -106,7 +96,7 @@ class Node {
         }
     }
     
-    static func filterValueType(_ value: Any) -> AnyObject? {
+    static func getReferenceValue(_ value: Any) -> AnyObject? {
         guard type(of: value) is AnyObject.Type else { return nil }
         return value as AnyObject
     }
