@@ -1,6 +1,16 @@
 import XCTest
 @testable import XCTAssertNoMemoryLeak
 
+#if os(iOS)
+extension UIView: CustomTraversable {
+    public var customTraverseKeyPaths: [AnyKeyPath] {
+        return [
+            \UIView.subviews
+        ]
+    }
+}
+#endif
+
 final class NodeTests: XCTestCase {
     func testFilterValueType() {
         class Foo { }
@@ -22,7 +32,14 @@ final class NodeTests: XCTestCase {
             var value: Int? = 1
         }
         let node = Node(from: Foo())
-        XCTAssertEqual(node.allPaths(), [[],[Path.label("value")], [Path.label("value"), Path.optional]])
+        XCTAssertEqual(
+            node.allPaths(),
+            [
+                [],
+                [Path.label("value")],
+                [Path.label("value"), Path.optional]
+            ]
+        )
     }
     
     func testLazyPropertyPath() {
@@ -32,8 +49,36 @@ final class NodeTests: XCTestCase {
         let foo = Foo()
         _ = foo.value
         let node = Node(from: foo)
-        XCTAssertEqual(node.allPaths(), [[],[Path.label("value")]])
+        XCTAssertEqual(
+            node.allPaths(),
+            [
+                [],
+                [Path.label("value")]
+            ]
+        )
     }
+    
+    #if os(iOS)
+    func testCustomTraverse() {
+        let view1 = UIView()
+        let view2 = UIView()
+        let view3 = UIView()
+        view1.addSubview(view2)
+        view2.addSubview(view3)
+        let node = Node(from: view1)
+        XCTAssertEqual(
+            node.allPaths(),
+            [
+                [],
+                [Path.label("subviews")],
+                [Path.label("subviews"), Path.index(0)],
+                [Path.label("subviews"), Path.index(0), Path.label("subviews")],
+                [Path.label("subviews"), Path.index(0), Path.label("subviews"), Path.index(0)],
+                [Path.label("subviews"), Path.index(0), Path.label("subviews"), Path.index(0), Path.label("subviews")],
+            ]
+        )
+    }
+    #endif
     
     static var allTests = [
         ("testFilterValueType", testFilterValueType),

@@ -28,6 +28,10 @@ enum Path: Hashable, CustomStringConvertible {
             return nil
         }
     }
+    
+    init(from keyPath: AnyKeyPath) {
+        self = .label(keyPath._kvcKeyPathString!)
+    }
 }
 
 extension Array where Element == Path {
@@ -91,7 +95,14 @@ class Node {
                             guard let node = Node(from: child.value, discoveredObject: &discoveredObject) else { return nil }
                             return (path, node)
                         }
-            })
+                    } + ((object as? CustomTraversable).map { object in
+                        object.customTraverseKeyPaths.compactMap { keyPath in
+                            let path = Path.init(from: keyPath)
+                            guard let value = object[keyPath: keyPath], let node = Node(from: value, discoveredObject: &discoveredObject) else { return nil }
+                            return (path, node)
+                        }
+                    } ?? [])
+            )
         }
     }
     
@@ -101,7 +112,13 @@ class Node {
     }
     
     func leakedObjectPaths() -> [[Path]] {
-        return (object != nil ? [[]] : []) +
+        var isLeaked: Bool {
+            if let customTraversable = (object as? CustomTraversable), customTraversable.ignoreAssertion {
+                return false
+            }
+            return object != nil
+        }
+        return (isLeaked ? [[]] : []) +
             children.flatMap { (path, node) in
                 return node.leakedObjectPaths().map { [path] + $0 }
         }

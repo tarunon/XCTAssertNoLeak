@@ -134,7 +134,7 @@ final class XCTAssertNoMemoryLeakTests: XCTestCase {
                 let vc = ViewController()
                 context.traverse(name: "vc", object: vc)
             },
-            ["Context.completion() must call"]
+            ["context.completion() must call"]
         )
         XCTAssertEqual(
             assertMessages { context in
@@ -155,6 +155,20 @@ final class XCTAssertNoMemoryLeakTests: XCTestCase {
                 makeAssertMessage(path: "vc"),
                 makeAssertMessage(path: "vc.view")
             ]
+        )
+    }
+    
+    func testAssertIgnoreSingleton() {
+        class Singleton: CustomTraversable {
+            static let shared = Singleton()
+            var ignoreAssertion: Bool { return true }
+        }
+        class View {
+            let sharedObjectPath = Singleton.shared
+        }
+        XCTAssertEqual(
+            assertMessages(View()),
+            []
         )
     }
 
