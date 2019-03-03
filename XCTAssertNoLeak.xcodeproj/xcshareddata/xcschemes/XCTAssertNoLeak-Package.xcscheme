@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "XCTAssertNoMemoryLeak::XCTAssertNoMemoryLeak"
-               BuildableName = "XCTAssertNoMemoryLeak.framework"
-               BlueprintName = "XCTAssertNoMemoryLeak"
-               ReferencedContainer = "container:XCTAssertNoMemoryLeak.xcodeproj">
+               BlueprintIdentifier = "XCTAssertNoLeak::XCTAssertNoLeak"
+               BuildableName = "XCTAssertNoLeak.framework"
+               BlueprintName = "XCTAssertNoLeak"
+               ReferencedContainer = "container:XCTAssertNoLeak.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "XCTAssertNoMemoryLeak::XCTAssertNoMemoryLeakTests"
-               BuildableName = "XCTAssertNoMemoryLeakTests.xctest"
-               BlueprintName = "XCTAssertNoMemoryLeakTests"
-               ReferencedContainer = "container:XCTAssertNoMemoryLeak.xcodeproj">
+               BlueprintIdentifier = "XCTAssertNoLeak::XCTAssertNoLeakTests"
+               BuildableName = "XCTAssertNoLeakTests.xctest"
+               BlueprintName = "XCTAssertNoLeakTests"
+               ReferencedContainer = "container:XCTAssertNoLeak.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,10 +55,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "XCTAssertNoMemoryLeak::XCTAssertNoMemoryLeak"
-            BuildableName = "XCTAssertNoMemoryLeak.framework"
-            BlueprintName = "XCTAssertNoMemoryLeak"
-            ReferencedContainer = "container:XCTAssertNoMemoryLeak.xcodeproj">
+            BlueprintIdentifier = "XCTAssertNoLeak::XCTAssertNoLeak"
+            BuildableName = "XCTAssertNoLeak.framework"
+            BlueprintName = "XCTAssertNoLeak"
+            ReferencedContainer = "container:XCTAssertNoLeak.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>

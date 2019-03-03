@@ -1,6 +1,6 @@
 //
 //  Node.swift
-//  XCTAssertNoMemoryLeak
+//  XCTAssertNoLeak
 //
 //  Created by tarunon on 2019/02/10.
 //

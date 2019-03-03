@@ -1,6 +1,6 @@
 //
 //  Assert.swift
-//  XCTAssertNoMemoryLeak
+//  XCTAssertNoLeak
 //
 //  Created by tarunon on 2019/02/10.
 //
@@ -11,7 +11,7 @@ func makeAssertMessage(path: String) -> String {
     return "Leaked Object Found: \(path)"
 }
 
-func assertNoMemoryLeak(_ object: @autoclosure () -> AnyObject, assert: (String, StaticString, UInt) -> (), file: StaticString, line: UInt) {
+func assertNoLeak(_ object: @autoclosure () -> AnyObject, assert: (String, StaticString, UInt) -> (), file: StaticString, line: UInt) {
     var node: Node!
     autoreleasepool {
         var strongObject: AnyObject! = object()
@@ -23,7 +23,7 @@ func assertNoMemoryLeak(_ object: @autoclosure () -> AnyObject, assert: (String,
     }
 }
 
-func assertNoMemoryLeak(_ f: (Context) -> (), assert: @escaping (String, StaticString, UInt) -> (), file: StaticString, line: UInt) {
+func assertNoLeak(_ f: (Context) -> (), assert: @escaping (String, StaticString, UInt) -> (), file: StaticString, line: UInt) {
     struct Element {
         var name: String
         var node: Node

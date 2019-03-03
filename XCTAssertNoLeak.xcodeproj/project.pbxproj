@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		"XCTAssertNoLeak::XCTAssertNoLeakPackageTests::ProductTarget" /* XCTAssertNoLeakPackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_42 /* Build configuration list for PBXAggregateTarget "XCTAssertNoLeakPackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_45 /* PBXTargetDependency */,
+			);
+			name = XCTAssertNoLeakPackageTests;
+			productName = XCTAssertNoLeakPackageTests;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		OBJ_29 /* Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Assert.swift */; };
+		OBJ_30 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Context.swift */; };
+		OBJ_31 /* CustomeTraversable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* CustomeTraversable.swift */; };
+		OBJ_32 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Node.swift */; };
+		OBJ_33 /* XCTAssertNoLeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* XCTAssertNoLeak.swift */; };
+		OBJ_40 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_51 /* NodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* NodeTests.swift */; };
+		OBJ_52 /* XCTAssertNoLeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* XCTAssertNoLeakTests.swift */; };
+		OBJ_53 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* XCTestManifests.swift */; };
+		OBJ_55 /* XCTAssertNoLeak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "XCTAssertNoLeak::XCTAssertNoLeak::Product" /* XCTAssertNoLeak.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D2C2A434222B97CF002E0A0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "XCTAssertNoLeak::XCTAssertNoLeak";
+			remoteInfo = XCTAssertNoLeak;
+		};
+		D2C2A435222B97D0002E0A0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "XCTAssertNoLeak::XCTAssertNoLeakTests";
+			remoteInfo = XCTAssertNoLeakTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		OBJ_10 /* Assert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assert.swift; sourceTree = "<group>"; };
+		OBJ_11 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		OBJ_12 /* CustomeTraversable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeTraversable.swift; sourceTree = "<group>"; };
+		OBJ_13 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		OBJ_15 /* XCTAssertNoLeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTAssertNoLeak.swift; sourceTree = "<group>"; };
+		OBJ_18 /* NodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTests.swift; sourceTree = "<group>"; };
+		OBJ_19 /* XCTAssertNoLeakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTAssertNoLeakTests.swift; sourceTree = "<group>"; };
+		OBJ_20 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		"XCTAssertNoLeak::XCTAssertNoLeak::Product" /* XCTAssertNoLeak.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCTAssertNoLeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"XCTAssertNoLeak::XCTAssertNoLeakTests::Product" /* XCTAssertNoLeakTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = XCTAssertNoLeakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_55 /* XCTAssertNoLeak.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		OBJ_14 /* Front */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_15 /* XCTAssertNoLeak.swift */,
+			);
+			path = Front;
+			sourceTree = "<group>";
+		};
+		OBJ_16 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_17 /* XCTAssertNoLeakTests */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_17 /* XCTAssertNoLeakTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_18 /* NodeTests.swift */,
+				OBJ_19 /* XCTAssertNoLeakTests.swift */,
+				OBJ_20 /* XCTestManifests.swift */,
+			);
+			name = XCTAssertNoLeakTests;
+			path = Tests/XCTAssertNoLeakTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_21 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"XCTAssertNoLeak::XCTAssertNoLeakTests::Product" /* XCTAssertNoLeakTests.xctest */,
+				"XCTAssertNoLeak::XCTAssertNoLeak::Product" /* XCTAssertNoLeak.framework */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_5 /*  */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_16 /* Tests */,
+				OBJ_21 /* Products */,
+			);
+			name = "";
+			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* XCTAssertNoLeak */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_8 /* XCTAssertNoLeak */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* Core */,
+				OBJ_14 /* Front */,
+			);
+			name = XCTAssertNoLeak;
+			path = Sources/XCTAssertNoLeak;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_10 /* Assert.swift */,
+				OBJ_11 /* Context.swift */,
+				OBJ_12 /* CustomeTraversable.swift */,
+				OBJ_13 /* Node.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		"XCTAssertNoLeak::SwiftPMPackageDescription" /* XCTAssertNoLeakPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_36 /* Build configuration list for PBXNativeTarget "XCTAssertNoLeakPackageDescription" */;
+			buildPhases = (
+				OBJ_39 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XCTAssertNoLeakPackageDescription;
+			productName = XCTAssertNoLeakPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"XCTAssertNoLeak::XCTAssertNoLeak" /* XCTAssertNoLeak */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_25 /* Build configuration list for PBXNativeTarget "XCTAssertNoLeak" */;
+			buildPhases = (
+				OBJ_28 /* Sources */,
+				OBJ_34 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XCTAssertNoLeak;
+			productName = XCTAssertNoLeak;
+			productReference = "XCTAssertNoLeak::XCTAssertNoLeak::Product" /* XCTAssertNoLeak.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"XCTAssertNoLeak::XCTAssertNoLeakTests" /* XCTAssertNoLeakTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_47 /* Build configuration list for PBXNativeTarget "XCTAssertNoLeakTests" */;
+			buildPhases = (
+				OBJ_50 /* Sources */,
+				OBJ_54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_56 /* PBXTargetDependency */,
+			);
+			name = XCTAssertNoLeakTests;
+			productName = XCTAssertNoLeakTests;
+			productReference = "XCTAssertNoLeak::XCTAssertNoLeakTests::Product" /* XCTAssertNoLeakTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 9999;
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "XCTAssertNoLeak" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_21 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"XCTAssertNoLeak::XCTAssertNoLeak" /* XCTAssertNoLeak */,
+				"XCTAssertNoLeak::SwiftPMPackageDescription" /* XCTAssertNoLeakPackageDescription */,
+				"XCTAssertNoLeak::XCTAssertNoLeakPackageTests::ProductTarget" /* XCTAssertNoLeakPackageTests */,
+				"XCTAssertNoLeak::XCTAssertNoLeakTests" /* XCTAssertNoLeakTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_29 /* Assert.swift in Sources */,
+				OBJ_30 /* Context.swift in Sources */,
+				OBJ_31 /* CustomeTraversable.swift in Sources */,
+				OBJ_32 /* Node.swift in Sources */,
+				OBJ_33 /* XCTAssertNoLeak.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_40 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_51 /* NodeTests.swift in Sources */,
+				OBJ_52 /* XCTAssertNoLeakTests.swift in Sources */,
+				OBJ_53 /* XCTestManifests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		OBJ_45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "XCTAssertNoLeak::XCTAssertNoLeakTests" /* XCTAssertNoLeakTests */;
+			targetProxy = D2C2A435222B97D0002E0A0E /* PBXContainerItemProxy */;
+		};
+		OBJ_56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "XCTAssertNoLeak::XCTAssertNoLeak" /* XCTAssertNoLeak */;
+			targetProxy = D2C2A434222B97CF002E0A0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = XCTAssertNoLeak.xcodeproj/XCTAssertNoLeak_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = XCTAssertNoLeak;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = XCTAssertNoLeak;
+			};
+			name = Debug;
+		};
+		OBJ_27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = XCTAssertNoLeak.xcodeproj/XCTAssertNoLeak_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = XCTAssertNoLeak;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = XCTAssertNoLeak;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "SWIFT_PACKAGE DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				USE_HEADERMAP = NO;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4.2 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		OBJ_38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4.2 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				USE_HEADERMAP = NO;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = XCTAssertNoLeak.xcodeproj/XCTAssertNoLeakTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = XCTAssertNoLeakTests;
+			};
+			name = Debug;
+		};
+		OBJ_49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = XCTAssertNoLeak.xcodeproj/XCTAssertNoLeakTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = XCTAssertNoLeakTests;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_2 /* Build configuration list for PBXProject "XCTAssertNoLeak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_25 /* Build configuration list for PBXNativeTarget "XCTAssertNoLeak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_26 /* Debug */,
+				OBJ_27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_36 /* Build configuration list for PBXNativeTarget "XCTAssertNoLeakPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_37 /* Debug */,
+				OBJ_38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_42 /* Build configuration list for PBXAggregateTarget "XCTAssertNoLeakPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_43 /* Debug */,
+				OBJ_44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_47 /* Build configuration list for PBXNativeTarget "XCTAssertNoLeakTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_48 /* Debug */,
+				OBJ_49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
+}

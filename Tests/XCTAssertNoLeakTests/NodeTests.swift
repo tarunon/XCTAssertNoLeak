@@ -1,5 +1,5 @@
 import XCTest
-@testable import XCTAssertNoMemoryLeak
+@testable import XCTAssertNoLeak
 
 #if os(iOS)
 extension UIView: CustomTraversable {

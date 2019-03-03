@@ -1,27 +1,27 @@
 import XCTest
-@testable import XCTAssertNoMemoryLeak
+@testable import XCTAssertNoLeak
 
-final class XCTAssertNoMemoryLeakTests: XCTestCase {
+final class XCTAssertNoLeakTests: XCTestCase {
     func assertMessages(_ object: @autoclosure () -> AnyObject) -> [String] {
         var result = [String]()
-        assertNoMemoryLeak(object(), assert: { message, _, _ in result.append(message) }, file: "", line: 0)
+        assertNoLeak(object(), assert: { message, _, _ in result.append(message) }, file: "", line: 0)
         return result
     }
     
     func assertMessages(_ f: @escaping (Context) -> ()) -> [String] {
         var result = [String]()
-        assertNoMemoryLeak(f, assert: { message, _, _ in result.append(message) }, file: "", line: 0)
+        assertNoLeak(f, assert: { message, _, _ in result.append(message) }, file: "", line: 0)
         return result
     }
     
-    func testAssertNoMemoryLeak() {
-        class NoMemoryLeakObject {
+    func testAssertNoLeak() {
+        class AssertNoLeakObject {
             var id: Int = 0
             var name: String = "name"
-            var children: [NoMemoryLeakObject] = []
+            var children: [AssertNoLeakObject] = []
         }
         XCTAssertEqual(
-            assertMessages(NoMemoryLeakObject()),
+            assertMessages(AssertNoLeakObject()),
             []
         )
     }
@@ -173,7 +173,7 @@ final class XCTAssertNoMemoryLeakTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testAssertNoMemoryLeak", testAssertNoMemoryLeak),
+        ("testAssertNoLeak", testAssertNoLeak),
         ("testAssertMemoryLeak", testAssertMemoryLeak),
         ("testAssertWeakDelegate", testAssertWeakDelegate),
         ("testAssertStrongDelegate", testAssertStrongDelegate),
