@@ -65,7 +65,7 @@
 		OBJ_20 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		"XCTAssertNoLeak::XCTAssertNoLeak::Product" /* XCTAssertNoLeak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCTAssertNoLeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"XCTAssertNoLeak::XCTAssertNoLeakTests::Product" /* XCTAssertNoLeakTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = XCTAssertNoLeakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"XCTAssertNoLeak::XCTAssertNoLeakTests::Product" /* XCTAssertNoLeakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = XCTAssertNoLeakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +221,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					"XCTAssertNoLeak::XCTAssertNoLeak" = {
+						LastSwiftMigration = 1020;
+					};
+					"XCTAssertNoLeak::XCTAssertNoLeakTests" = {
+						LastSwiftMigration = 1020;
+					};
+				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "XCTAssertNoLeak" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -310,7 +318,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = XCTAssertNoLeak;
 			};
 			name = Debug;
@@ -334,7 +342,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = XCTAssertNoLeak;
 			};
 			name = Release;
@@ -437,7 +445,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = XCTAssertNoLeakTests;
 			};
 			name = Debug;
@@ -458,7 +466,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = XCTAssertNoLeakTests;
 			};
 			name = Release;
