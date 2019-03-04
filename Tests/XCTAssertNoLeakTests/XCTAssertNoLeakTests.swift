@@ -38,8 +38,8 @@ final class XCTAssertNoLeakTests: XCTestCase {
     }
     
     func testAssertWeakDelegate() {
-        #if swift(>=4.3)
-        #elseif swift(>=4.2)
+        #if swift(>=4.2.1)
+        #elseif swift(>=4.2.0)
         print("This test case is unavailable: https://bugs.swift.org/browse/SR-8878")
         return
         #endif
@@ -127,7 +127,7 @@ final class XCTAssertNoLeakTests: XCTestCase {
             var strongDelegate: AnyObject?
         }
         class ViewController {
-            lazy var view: View = loadView()
+            lazy var view: View = self.loadView()
             func loadView() -> View {
                 let view = View()
                 view.strongDelegate = self
