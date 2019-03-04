@@ -73,27 +73,37 @@ class Node {
                 children = [:]
             }
         } else {
+            let childNodesFromMirror = mirror.children
+                .enumerated()
+                .compactMap { (index, mirrorChild) in
+                    Node.childNode(index: index, mirrorChild: mirrorChild, discoveredObject: &discoveredObject)
+            }
+            let childNodesFromCustomTraversable = (object as? CustomTraversable)?
+                .customTraverseKeyPaths
+                .compactMap { keyPath in
+                    Node.childNode(object: object, keyPath: keyPath, discoveredObject: &discoveredObject)
+                } ?? []
             self.children = Dictionary(
-                uniqueKeysWithValues: mirror.children
-                    .enumerated()
-                    .compactMap { (index, child) in
-                        let path = child.label.map { Path.label($0) } ?? Path.index(index)
-                        if let lazyPath = path.lazyPath {
-                            guard let value = (child.value as? OptionalKind)?.optional, let node = Node(from: value, discoveredObject: &discoveredObject) else { return nil }
-                            return (lazyPath, node)
-                        } else {
-                            guard let node = Node(from: child.value, discoveredObject: &discoveredObject) else { return nil }
-                            return (path, node)
-                        }
-                    } + ((object as? CustomTraversable).map { object in
-                        object.customTraverseKeyPaths.compactMap { keyPath in
-                            let path = Path.init(from: keyPath)
-                            guard let value = object[keyPath: keyPath], let node = Node(from: value, discoveredObject: &discoveredObject) else { return nil }
-                            return (path, node)
-                        }
-                    } ?? [])
+                uniqueKeysWithValues:  childNodesFromMirror + childNodesFromCustomTraversable
             )
         }
+    }
+    
+    static func childNode(index: Int, mirrorChild: Mirror.Child, discoveredObject: inout Set<ObjectIdentifier>) -> (Path, Node)? {
+        let path = mirrorChild.label.map { Path.label($0) } ?? Path.index(index)
+        if let lazyPath = path.lazyPath {
+            guard let value = (mirrorChild.value as? OptionalKind)?.optional, let node = Node(from: value, discoveredObject: &discoveredObject) else { return nil }
+            return (lazyPath, node)
+        } else {
+            guard let node = Node(from: mirrorChild.value, discoveredObject: &discoveredObject) else { return nil }
+            return (path, node)
+        }
+    }
+    
+    static func childNode(object: Any, keyPath: AnyKeyPath, discoveredObject: inout Set<ObjectIdentifier>) -> (Path, Node)? {
+        let path = Path.init(from: keyPath)
+        guard let value = object[keyPath: keyPath], let node = Node(from: value, discoveredObject: &discoveredObject) else { return nil }
+        return (path, node)
     }
     
     static func getReferenceValue(_ value: Any) -> AnyObject? {
