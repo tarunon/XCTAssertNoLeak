@@ -118,9 +118,8 @@ class Node {
             }
             return object != nil
         }
-        return (isLeaked ? [[]] : []) +
-            children.flatMap { (path, node) in
-                return node.leakedObjectPaths().map { [path] + $0 }
+        return isLeaked ? [[]] : children.flatMap { (path, node) in
+            return node.leakedObjectPaths().map { [path] + $0 }
         }
     }
     

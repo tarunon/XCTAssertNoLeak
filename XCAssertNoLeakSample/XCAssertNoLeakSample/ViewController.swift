@@ -50,19 +50,35 @@ class ViewControllerLeaked: UIViewController {
 }
 
 class ViewControllerLeakedViewDidAppear: UIViewController {
-    lazy var observer = NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil, using: leakedMethod(_:))
-    
-    deinit {
-        NotificationCenter.default.removeObserver(observer)
+    class Button: UIButton {
+        var handler: (() -> ())? {
+            didSet {
+                addTarget(self, action: #selector(handle(_:)), for: .touchUpInside)
+            }
+        }
+        
+        @objc func handle(_ sender: Any) {
+            handler?()
+        }
     }
-
+    class Logic {
+        var updateTitle: ((String) -> ())?
+        func buttonTitle(_ f: @escaping (String) -> ()) {
+            self.updateTitle = f
+        }
+        func tapped() {
+            
+        }
+    }
+    lazy var button = Button()
+    lazy var logic = Logic()
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        _ = observer
-    }
-    
-    func leakedMethod(_ notification: Notification) {
         
+        view.addSubview(button)
+        logic.buttonTitle { [button] in button.setTitle($0, for: .normal) }
+        button.handler = logic.tapped
     }
 }
 

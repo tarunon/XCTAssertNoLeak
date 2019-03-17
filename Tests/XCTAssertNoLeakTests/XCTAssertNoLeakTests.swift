@@ -72,11 +72,13 @@ final class XCTAssertNoLeakTests: XCTestCase {
                 child.delegate = self
             }
         }
+        class RootObject {
+            let parent = ParentObject()
+        }
         XCTAssertEqual(
-            assertMessages(ParentObject()),
+            assertMessages(RootObject()),
             [
-                makeAssertMessage(path: "self"),
-                makeAssertMessage(path: "self.child")
+                makeAssertMessage(path: "self.parent")
             ]
         )
     }
@@ -86,18 +88,21 @@ final class XCTAssertNoLeakTests: XCTestCase {
             var strongDelegate: ParentObject?
         }
         class ParentObject {
-            var child: ChildObject?
+            var child: ChildObject
             
             init() {
                 child = ChildObject()
-                child?.strongDelegate = self
+                child.strongDelegate = self
             }
         }
+        
+        class RootObject {
+            let parent: ParentObject? = ParentObject()
+        }
         XCTAssertEqual(
-            assertMessages(ParentObject()),
+            assertMessages(RootObject()),
             [
-                makeAssertMessage(path: "self"),
-                makeAssertMessage(path: "self.child?")
+                makeAssertMessage(path: "self.parent?")
             ]
         )
     }
@@ -107,17 +112,24 @@ final class XCTAssertNoLeakTests: XCTestCase {
             var strongDelegate: ParentObject?
         }
         class ParentObject {
-            lazy var child: ChildObject = ChildObject()
+            var child: ChildObject
             
             init() {
+                child = ChildObject()
                 child.strongDelegate = self
             }
         }
+        class RootObject {
+            lazy var parent = ParentObject()
+            
+            init() {
+                parent = ParentObject()
+            }
+        }
         XCTAssertEqual(
-            assertMessages(ParentObject()),
+            assertMessages(RootObject()),
             [
-                makeAssertMessage(path: "self"),
-                makeAssertMessage(path: "self.child")
+                makeAssertMessage(path: "self.parent")
             ]
         )
     }
@@ -157,8 +169,7 @@ final class XCTAssertNoLeakTests: XCTestCase {
                 context.completion()
             },
             [
-                makeAssertMessage(path: "vc"),
-                makeAssertMessage(path: "vc.view")
+                makeAssertMessage(path: "vc")
             ]
         )
     }
