@@ -1,6 +1,6 @@
 import XCTest
-
-#if swift(>=4.2.2)
+#if swift(>=4.2)
+#if compiler(>=5.0)
 public func XCTAssertNoLeak(_ object: @autoclosure () -> AnyObject, file: StaticString = #file, line: UInt = #line) {
     assertNoLeak(object(), assert: XCTFail, file: file, line: line)
 }
@@ -19,3 +19,13 @@ public func XCTAssertNoLeak(_ f: (Context) -> (), file: StaticString = #file, li
     assertNoLeak(f, assert: XCTFail, file: file, line: line)
 }
 #endif
+#else
+public func XCTAssertNoLeak(_ object: @autoclosure () -> AnyObject, file: StaticString = #file, line: UInt = #line) {
+    assertNoLeak(object(), assert: XCTFail, file: file, line: line)
+}
+
+public func XCTAssertNoLeak(_ f: (Context) -> (), file: StaticString = #file, line: UInt = #line) {
+    assertNoLeak(f, assert: XCTFail, file: file, line: line)
+}
+#endif
+

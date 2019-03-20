@@ -38,10 +38,12 @@ final class XCTAssertNoLeakTests: XCTestCase {
     }
     
     func testAssertWeakDelegate() {
-        #if swift(>=4.2.1)
-        #elseif swift(>=4.2.0)
-        print("This test case is unavailable: https://bugs.swift.org/browse/SR-8878")
-        return
+        #if swift(>=4.2)
+            #if compiler(>=5.0)
+            #else
+            print("This test case is unavailable: https://bugs.swift.org/browse/SR-8878")
+            return
+            #endif
         #endif
         class ChildObject {
             weak var delegate: ParentObject?
