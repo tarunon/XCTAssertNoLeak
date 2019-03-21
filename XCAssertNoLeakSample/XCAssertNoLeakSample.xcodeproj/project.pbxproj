@@ -12,6 +12,7 @@
 		D2535D1A2238027A007D737A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2535D182238027A007D737A /* Main.storyboard */; };
 		D2535D1C2238027D007D737A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2535D1B2238027D007D737A /* Assets.xcassets */; };
 		D2535D442238043D007D737A /* XCTAssertNoLeak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2535D432238043D007D737A /* XCTAssertNoLeak.framework */; };
+		D2841E7222436FA7002C1369 /* XCAssertNoLeakSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2841E7122436FA7002C1369 /* XCAssertNoLeakSampleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		D2535D202238027D007D737A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2535D252238027D007D737A /* XCAssertNoLeakSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XCAssertNoLeakSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2535D432238043D007D737A /* XCTAssertNoLeak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCTAssertNoLeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2841E7122436FA7002C1369 /* XCAssertNoLeakSampleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCAssertNoLeakSampleTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				D2535D132238027A007D737A /* XCAssertNoLeakSample */,
+				D2841E7022436F73002C1369 /* XCAssertNoLeakSampleTests */,
 				D2535D122238027A007D737A /* Products */,
 				D2535D422238043D007D737A /* Frameworks */,
 			);
@@ -90,6 +93,14 @@
 				D2535D432238043D007D737A /* XCTAssertNoLeak.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2841E7022436F73002C1369 /* XCAssertNoLeakSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				D2841E7122436FA7002C1369 /* XCAssertNoLeakSampleTests.swift */,
+			);
+			path = XCAssertNoLeakSampleTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +156,7 @@
 					};
 					D2535D242238027D007D737A = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 						TestTargetID = D2535D102238027A007D737A;
 					};
 				};
@@ -201,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2841E7222436FA7002C1369 /* XCAssertNoLeakSampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +396,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = XCAssertNoLeakSampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -392,6 +406,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tarunon.XCAssertNoLeakSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XCAssertNoLeakSample.app/XCAssertNoLeakSample";
 			};
@@ -402,6 +418,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = XCAssertNoLeakSampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -411,6 +428,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tarunon.XCAssertNoLeakSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XCAssertNoLeakSample.app/XCAssertNoLeakSample";
 			};
