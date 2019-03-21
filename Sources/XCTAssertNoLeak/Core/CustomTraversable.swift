@@ -1,5 +1,5 @@
 //
-//  CustomeTraversable.swift
+//  CustomTraversable.swift
 //  XCTAssertNoLeak
 //
 //  Created by tarunon on 2019/02/27.
