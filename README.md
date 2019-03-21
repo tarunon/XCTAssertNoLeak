@@ -12,3 +12,12 @@ Found memory leak objects from traverse object tree using Mirror.
 |5.0|○|-|
 |4.2|×|[SR-8878](https://bugs.swift.org/browse/SR-8878)|
 |4.1|○|-|
+
+# Instration
+
+## Carthage
+```rb
+github "tarunon/XCTAssertNoLeak" "master"
+```
+
+Sorry for not yet release 🤕
