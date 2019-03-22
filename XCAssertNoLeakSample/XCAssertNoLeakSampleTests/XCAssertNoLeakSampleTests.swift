@@ -14,10 +14,9 @@ class XCAssertNoLeakSampleTests: XCTestCase {
 
     func testAssertNoLeak() {
         XCTAssertNoLeak(ViewControllerNoLeak())
-        
         XCTAssertNoLeak(ViewControllerLeaked())
         
-        XCTAssertNoLeak({ context in
+        XCTAssertNoLeak { context in
             let rootViewController = UIApplication.shared.keyWindow!.rootViewController!
             let viewController = ViewControllerLeakedViewDidAppear()
             
@@ -27,7 +26,7 @@ class XCAssertNoLeakSampleTests: XCTestCase {
                     context.completion()
                 })
             })
-        })
+        }
     }
 
 }
