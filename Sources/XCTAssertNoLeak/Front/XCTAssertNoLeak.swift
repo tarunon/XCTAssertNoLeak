@@ -10,6 +10,7 @@ public func XCTAssertNoLeak(file: StaticString = #file, line: UInt = #line, _ ob
 }
 
 /// Generates a failure asynchronously if traversed objects are leaked.
+/// The closure is executed synchronously and blocks while running.
 ///
 /// - Parameters:
 ///   - f: The closure givven memory leak test context.
@@ -39,6 +40,7 @@ public func XCTAssertNoLeak(file: StaticString = #file, line: UInt = #line, _ ob
 }
 
 /// Generates a failure asynchronously if traversed objects are leaked.
+/// The closure is executed synchronously and blocks while running.
 ///
 /// - Parameters:
 ///   - f: The closure givven memory leak test context.
@@ -69,6 +71,7 @@ public func XCTAssertNoLeak(file: StaticString = #file, line: UInt = #line, _ ob
 }
 
 /// Generates a failure asynchronously if traversed objects are leaked.
+/// The closure is executed synchronously and blocks while running.
 ///
 /// - Parameters:
 ///   - f: The closure givven memory leak test context.
