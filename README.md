@@ -1,4 +1,4 @@
-# XCTAssertNoMemoryLeak
+# XCTAssertNoLeak
 
 Provides memory leak test cases for Swift.
 
