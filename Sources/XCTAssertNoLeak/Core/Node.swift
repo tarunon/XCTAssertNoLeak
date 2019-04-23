@@ -128,4 +128,8 @@ class Node {
             return node.allPaths().map { [path] + $0 }
         }
     }
+
+    func intervalForFreeing() -> TimeInterval {
+        return children.values.reduce((object as? CustomTraversable)?.intervalForFreeing ?? 0.0, { $0 + $1.intervalForFreeing() })
+    }
 }
