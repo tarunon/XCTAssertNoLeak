@@ -18,6 +18,7 @@ func assertNoLeak(_ object: @autoclosure () -> AnyObject, assert: (String, Stati
         node = Node(from: strongObject!)
         strongObject = nil
     }
+    RunLoop.current.run(until: Date(timeIntervalSinceNow: node.intervalForFreeing()))
     node.leakedObjectPaths().forEach { (path) in
         assert(makeAssertMessage(path: path.pathString(with: "self")), file, line)
     }
@@ -42,6 +43,7 @@ func assertNoLeak(_ f: (Context) -> (), assert: @escaping (String, StaticString,
             RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.01))
         }
     }
+    RunLoop.current.run(until: Date(timeIntervalSinceNow: nodes.reduce(TimeInterval(0.0), { $0 + $1.node.intervalForFreeing() })))
     nodes.forEach { element in
         element.node.leakedObjectPaths().forEach { path in
             assert(makeAssertMessage(path: path.pathString(with: element.name)), element.file, element.line)

@@ -15,6 +15,9 @@ public protocol CustomTraversable {
     /// Ignore object assertion if memory leak happen.
     /// Set true if the object is singleton/shared object.
     var ignoreAssertion: Bool { get }
+
+    /// Waiting interval for the object freeing.
+    var intervalForFreeing: TimeInterval { get }
 }
 
 public extension CustomTraversable {
@@ -23,5 +26,8 @@ public extension CustomTraversable {
     }
     var ignoreAssertion: Bool {
         return false
+    }
+    var intervalForFreeing: TimeInterval {
+        return 0.0
     }
 }
