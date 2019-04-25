@@ -16,6 +16,7 @@ public protocol CustomTraversable {
     /// Set true if the object is singleton/shared object.
     var ignoreAssertion: Bool { get }
 
+    /// Waiting interval for the object freeing.
     var intervalForFreeing: TimeInterval { get }
 }
 
