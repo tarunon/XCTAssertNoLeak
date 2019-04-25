@@ -10,7 +10,8 @@ Found memory leak objects from traverse object tree using Mirror.
 |Swift|Support|Note|
 |-|-|-|
 |5.0|○|-|
-|4.2|×|[SR-8878](https://bugs.swift.org/browse/SR-8878)|
+|4.2 (Xcode 10.2)|○|-|
+|4.2 (Xcode 10.1)|×|[SR-8878](https://bugs.swift.org/browse/SR-8878)|
 |4.1|○|-|
 
 # Instration
