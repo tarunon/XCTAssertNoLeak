@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C7BC270228757EA00278F7E /* XCTAssertNoLeak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7BC26F228757EA00278F7E /* XCTAssertNoLeak.framework */; };
 		D2535D152238027A007D737A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2535D142238027A007D737A /* AppDelegate.swift */; };
 		D2535D172238027A007D737A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2535D162238027A007D737A /* ViewController.swift */; };
 		D2535D1A2238027A007D737A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2535D182238027A007D737A /* Main.storyboard */; };
 		D2535D1C2238027D007D737A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2535D1B2238027D007D737A /* Assets.xcassets */; };
-		D2535D442238043D007D737A /* XCTAssertNoLeak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2535D432238043D007D737A /* XCTAssertNoLeak.framework */; };
 		D2841E7222436FA7002C1369 /* XCAssertNoLeakSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2841E7122436FA7002C1369 /* XCAssertNoLeakSampleTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C7BC26F228757EA00278F7E /* XCTAssertNoLeak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCTAssertNoLeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2535D112238027A007D737A /* XCAssertNoLeakSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XCAssertNoLeakSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2535D142238027A007D737A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2535D162238027A007D737A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2535D442238043D007D737A /* XCTAssertNoLeak.framework in Frameworks */,
+				7C7BC270228757EA00278F7E /* XCTAssertNoLeak.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +91,7 @@
 		D2535D422238043D007D737A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7C7BC26F228757EA00278F7E /* XCTAssertNoLeak.framework */,
 				D2535D432238043D007D737A /* XCTAssertNoLeak.framework */,
 			);
 			name = Frameworks;
