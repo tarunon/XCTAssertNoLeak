@@ -18,5 +18,5 @@ Found memory leak objects from traverse object tree using Mirror.
 
 ## Carthage
 ```rb
-github "tarunon/XCTAssertNoLeak" "０．１．０"
+github "tarunon/XCTAssertNoLeak" "0.1.0"
 ```
