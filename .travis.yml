@@ -5,4 +5,4 @@ language: objective-c
 osx_image: xcode10.2
 script:
 - set -o pipefail
-- xcodebuild test -scheme XCTAssertNoMemoryLeak -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 8" | xcpretty -c
+- xcodebuild test -scheme XCTAssertNoLeak -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 8" | xcpretty -c
