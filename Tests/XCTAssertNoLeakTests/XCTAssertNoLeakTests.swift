@@ -165,14 +165,14 @@ final class XCTAssertNoLeakTests: XCTestCase {
         XCTAssertEqual(
             assertMessages { context in
                 let vc = ViewController()
-                context.traverse(name: "vc", object: vc)
+                context.traverse(vc)
             },
             ["context.completion() must call"]
         )
         XCTAssertEqual(
             assertMessages { context in
                 let vc = ViewController()
-                context.traverse(name: "vc", object: vc)
+                context.traverse(vc)
                 context.completion()
             },
             []
@@ -181,13 +181,13 @@ final class XCTAssertNoLeakTests: XCTestCase {
             assertMessages { context in
                 let vc = ViewController()
                 _ = vc.view // load view
-                context.traverse(name: "vc", object: vc)
+                context.traverse(vc)
                 context.completion()
             },
             [
                 """
 1 object occured memory leak.
-- vc
+- self
 """
             ]
         )

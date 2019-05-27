@@ -20,7 +20,7 @@ class XCAssertNoLeakSampleTests: XCTestCase {
             let viewController = ViewControllerLeakedViewDidAppear()
             
             rootViewController.present(viewController, animated: true, completion: {
-                context.traverse(name: "vc", object: viewController)
+                context.traverse(viewController)
                 rootViewController.dismiss(animated: true, completion: {
                     context.completion()
                 })

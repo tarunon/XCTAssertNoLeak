@@ -36,7 +36,7 @@ final class NodeTests: XCTestCase {
         class Foo {
             var value: Int? = 1
         }
-        let node = Node(from: Foo(), name: "self")
+        let node = Node(from: Foo())
         XCTAssertEqual(
             node.allPaths(),
             [
@@ -51,7 +51,7 @@ final class NodeTests: XCTestCase {
         class Foo {
             var value: Int! = 1
         }
-        let node = Node(from: Foo(), name: "self")
+        let node = Node(from: Foo())
         XCTAssertEqual(
             node.allPaths(),
             [
@@ -68,7 +68,7 @@ final class NodeTests: XCTestCase {
         }
         let foo = Foo()
         _ = foo.value
-        let node = Node(from: foo, name: "self")
+        let node = Node(from: foo)
         XCTAssertEqual(
             node.allPaths(),
             [
@@ -85,7 +85,7 @@ final class NodeTests: XCTestCase {
         let view3 = UIView()
         view1.addSubview(view2)
         view2.addSubview(view3)
-        let node = Node(from: view1, name: "self")
+        let node = Node(from: view1)
         XCTAssertEqual(
             node.allPaths(),
             [

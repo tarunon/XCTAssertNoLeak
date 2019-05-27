@@ -53,23 +53,21 @@ extension Optional: OptionalKind {
 class Node {
     weak var object: AnyObject?
     var children: [Path: Node]
-    var name: String
     
-    convenience init(from object: Any, name: String) {
+    convenience init(from object: Any) {
         var discoveredObject = Set<ObjectIdentifier>()
-        self.init(from: object, name: name, discoveredObject: &discoveredObject)!
+        self.init(from: object, discoveredObject: &discoveredObject)!
     }
     
-    init?(from object: Any, name: String = "", discoveredObject: inout Set<ObjectIdentifier>) {
+    init?(from object: Any, discoveredObject: inout Set<ObjectIdentifier>) {
         self.object = Node.getReferenceValue(object)
-        self.name = name
         if let object = self.object {
             if discoveredObject.contains(ObjectIdentifier(object)) { return nil }
             discoveredObject.insert(ObjectIdentifier(object))
         }
         let mirror = Mirror(reflecting: object)
         if let object = object as? OptionalKind {
-            if let value = object.optional, let node = Node(from: value, name: name, discoveredObject: &discoveredObject) {
+            if let value = object.optional, let node = Node(from: value, discoveredObject: &discoveredObject) {
                 children = [Path.optional: node]
             } else {
                 children = [:]
@@ -138,6 +136,6 @@ class Node {
     func assertMessage() -> String? {
         let paths = leakedObjectPaths()
         if paths.isEmpty { return nil }
-        return "\(paths.count) object occured memory leak." + "\n" + paths.map { "- \($0.pathString(with: name))" }.joined(separator: "\n")
+        return "\(paths.count) object occured memory leak." + "\n" + paths.map { "- \($0.pathString(with: "self"))" }.joined(separator: "\n")
     }
 }

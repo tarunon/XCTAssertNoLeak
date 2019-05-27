@@ -23,8 +23,13 @@ public final class AssertNoLeakContext {
     /// - Parameters:
     ///   - name: The object name. If the object leaked, assert message will show using this name.
     ///   - object: The assert target.
+    public func traverse(_ object: AnyObject, file: StaticString=#file, line: UInt=#line) {
+        internalContext.elements.append(.init(node: Node(from: object), file: file, line: line))
+    }
+    
+    @available(*, deprecated, message: "`name` fieald isn't support no longer")
     public func traverse(name: String, object: AnyObject, file: StaticString=#file, line: UInt=#line) {
-        internalContext.elements.append(.init(name: name, node: Node(from: object, name: name), file: file, line: line))
+        internalContext.elements.append(.init(node: Node(from: object), file: file, line: line))
     }
     
     /// Call this closure when sure all object dealocated.
@@ -48,7 +53,6 @@ final class AssertNoLeakContextInternal {
     var completed = false
     
     fileprivate struct Element {
-        var name: String
         var node: Node
         var file: StaticString
         var line: UInt
