@@ -26,7 +26,7 @@ public func XCTAssertNoLeak(file: StaticString = #file, line: UInt = #line, _ ob
 ///    }
 /// }
 /// ```
-public func XCTAssertNoLeak(file: StaticString = #file, line: UInt = #line, _ f: (Context) -> ()) {
+public func XCTAssertNoLeak(file: StaticString = #file, line: UInt = #line, _ f: (AssertNoLeakContext) -> ()) {
     assertNoLeak(f, assert: XCTFail, file: file, line: line)
 }
 #else

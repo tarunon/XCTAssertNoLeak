@@ -25,7 +25,7 @@
 		D202C23F222BA6F6009AF2F1 /* OldSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D202C23D222BA446009AF2F1 /* OldSwiftSupport.swift */; };
 		D2841E7422436FF8002C1369 /* CustomTraversable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2841E7322436FF8002C1369 /* CustomTraversable.swift */; };
 		OBJ_29 /* Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Assert.swift */; };
-		OBJ_30 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Context.swift */; };
+		OBJ_30 /* AssertNoLeakContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AssertNoLeakContext.swift */; };
 		OBJ_32 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Node.swift */; };
 		OBJ_33 /* XCTAssertNoLeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* XCTAssertNoLeak.swift */; };
 		OBJ_40 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
@@ -57,7 +57,7 @@
 		D202C23D222BA446009AF2F1 /* OldSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldSwiftSupport.swift; sourceTree = "<group>"; };
 		D2841E7322436FF8002C1369 /* CustomTraversable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTraversable.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Assert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assert.swift; sourceTree = "<group>"; };
-		OBJ_11 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		OBJ_11 /* AssertNoLeakContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertNoLeakContext.swift; sourceTree = "<group>"; };
 		OBJ_13 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		OBJ_15 /* XCTAssertNoLeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTAssertNoLeak.swift; sourceTree = "<group>"; };
 		OBJ_18 /* NodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTests.swift; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 			children = (
 				D202C23B222B9F03009AF2F1 /* OldSwiftSupport.swift */,
 				OBJ_10 /* Assert.swift */,
-				OBJ_11 /* Context.swift */,
+				OBJ_11 /* AssertNoLeakContext.swift */,
 				D2841E7322436FF8002C1369 /* CustomTraversable.swift */,
 				OBJ_13 /* Node.swift */,
 			);
@@ -235,6 +235,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = OBJ_5;
@@ -257,7 +258,7 @@
 			files = (
 				OBJ_29 /* Assert.swift in Sources */,
 				D2841E7422436FF8002C1369 /* CustomTraversable.swift in Sources */,
-				OBJ_30 /* Context.swift in Sources */,
+				OBJ_30 /* AssertNoLeakContext.swift in Sources */,
 				OBJ_32 /* Node.swift in Sources */,
 				OBJ_33 /* XCTAssertNoLeak.swift in Sources */,
 				D202C23C222B9F03009AF2F1 /* OldSwiftSupport.swift in Sources */,

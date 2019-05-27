@@ -8,7 +8,7 @@ final class XCTAssertNoLeakTests: XCTestCase {
         return result
     }
     
-    func assertMessages(_ f: @escaping (Context) -> ()) -> [String] {
+    func assertMessages(_ f: @escaping (AssertNoLeakContext) -> ()) -> [String] {
         var result = [String]()
         assertNoLeak(f, assert: { message, _, _ in result.append(message) }, file: "", line: 0)
         return result
