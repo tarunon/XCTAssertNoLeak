@@ -10,7 +10,7 @@ import Foundation
 func assertNoLeak(_ object: @autoclosure () -> AnyObject, assert: @escaping (String, StaticString, UInt) -> (), file: StaticString, line: UInt) {
     let context = AssertNoLeakContextInternal(assert: assert, file: file, line: line)
     context.process { (context) in
-        context.traverse(name: "self", object: object())
+        context.traverse(name: "self", object: object(), file: file, line: line)
         context.completion()
     }
     context.assert()

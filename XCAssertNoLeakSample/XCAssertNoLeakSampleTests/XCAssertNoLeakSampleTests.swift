@@ -13,7 +13,6 @@ import XCTAssertNoLeak
 class XCAssertNoLeakSampleTests: XCTestCase {
 
     func testAssertNoLeak() {
-        XCTAssertNoLeak(ViewControllerNoLeak())
         XCTAssertNoLeak(ViewControllerLeaked())
         
         XCTAssertNoLeak { context in
