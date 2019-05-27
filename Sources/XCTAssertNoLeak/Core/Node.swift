@@ -132,4 +132,10 @@ class Node {
     func intervalForFreeing() -> TimeInterval {
         return children.values.reduce((object as? CustomTraversable)?.intervalForFreeing ?? 0.0, { $0 + $1.intervalForFreeing() })
     }
+    
+    func assertMessage(_ objectName: String) -> String? {
+        let paths = leakedObjectPaths()
+        if paths.isEmpty { return nil }
+        return "\(paths.count) object occured memory leak." + "\n" + paths.map { "- \($0.pathString(with: objectName))" }.joined(separator: "\n")
+    }
 }

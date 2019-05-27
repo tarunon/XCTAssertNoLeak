@@ -7,10 +7,6 @@
 
 import Foundation
 
-func makeAssertMessage(path: String) -> String {
-    return "Leaked Object Found: \(path)"
-}
-
 func assertNoLeak(_ object: @autoclosure () -> AnyObject, assert: (String, StaticString, UInt) -> (), file: StaticString, line: UInt) {
     var node: Node!
     autoreleasepool {
@@ -19,8 +15,8 @@ func assertNoLeak(_ object: @autoclosure () -> AnyObject, assert: (String, Stati
         strongObject = nil
     }
     RunLoop.current.run(until: Date(timeIntervalSinceNow: node.intervalForFreeing()))
-    node.leakedObjectPaths().forEach { (path) in
-        assert(makeAssertMessage(path: path.pathString(with: "self")), file, line)
+    if let assertMessage = node.assertMessage("self") {
+        assert(assertMessage, file, line)
     }
 }
 
@@ -45,8 +41,8 @@ func assertNoLeak(_ f: (Context) -> (), assert: @escaping (String, StaticString,
     }
     RunLoop.current.run(until: Date(timeIntervalSinceNow: nodes.reduce(TimeInterval(0.0), { $0 + $1.node.intervalForFreeing() })))
     nodes.forEach { element in
-        element.node.leakedObjectPaths().forEach { path in
-            assert(makeAssertMessage(path: path.pathString(with: element.name)), element.file, element.line)
+        if let assertMessage = element.node.assertMessage(element.name) {
+            assert(assertMessage, element.file, element.line)
         }
     }
 }
