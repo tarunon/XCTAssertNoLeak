@@ -21,5 +21,11 @@ Found memory leak objects from traverse object tree using Mirror.
 
 ## Carthage
 ```rb
-github "tarunon/XCTAssertNoLeak" "0.1.0"
+github "tarunon/XCTAssertNoLeak"
+```
+
+## CocoaPods
+Write it below Pods for testing.
+```rb
+pod 'XCTAssertNoLeak'
 ```
