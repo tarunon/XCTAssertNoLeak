@@ -1,6 +1,6 @@
 //
-//  XCAssertNoLeakSampleTests.swift
-//  XCAssertNoLeakSampleTests
+//  XCAssertNoLeakExample.swift
+//  XCAssertNoLeakExample
 //
 //  Created by tarunon on 2019/03/13.
 //  Copyright © 2019 tarunon. All rights reserved.
@@ -10,7 +10,7 @@ import XCTest
 import XCTAssertNoLeak
 @testable import XCAssertNoLeakSample
 
-class XCAssertNoLeakSampleTests: XCTestCase {
+class XCAssertNoLeakExample: XCTestCase {
 
     func testAssertNoLeak() {
         XCTAssertNoLeak(ViewControllerLeaked())
