@@ -3,15 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7C7BC270228757EA00278F7E /* XCTAssertNoLeak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7BC26F228757EA00278F7E /* XCTAssertNoLeak.framework */; };
 		D2535D152238027A007D737A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2535D142238027A007D737A /* AppDelegate.swift */; };
 		D2535D172238027A007D737A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2535D162238027A007D737A /* ViewController.swift */; };
 		D2535D1A2238027A007D737A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2535D182238027A007D737A /* Main.storyboard */; };
 		D2535D1C2238027D007D737A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2535D1B2238027D007D737A /* Assets.xcassets */; };
+		D2782E0122A76D8B00903D31 /* XCTAssertNoLeak in Frameworks */ = {isa = PBXBuildFile; productRef = D2782E0022A76D8B00903D31 /* XCTAssertNoLeak */; };
 		D2841E7222436FA7002C1369 /* XCAssertNoLeakExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2841E7122436FA7002C1369 /* XCAssertNoLeakExampleTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C7BC270228757EA00278F7E /* XCTAssertNoLeak.framework in Frameworks */,
+				D2782E0122A76D8B00903D31 /* XCTAssertNoLeak in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +121,8 @@
 			dependencies = (
 			);
 			name = XCAssertNoLeakExample;
+			packageProductDependencies = (
+			);
 			productName = XCAssertNoLeakSample;
 			productReference = D2535D112238027A007D737A /* XCAssertNoLeakExample.app */;
 			productType = "com.apple.product-type.application";
@@ -139,6 +141,9 @@
 				D2535D272238027D007D737A /* PBXTargetDependency */,
 			);
 			name = XCAssertNoLeakExampleTests;
+			packageProductDependencies = (
+				D2782E0022A76D8B00903D31 /* XCTAssertNoLeak */,
+			);
 			productName = XCAssertNoLeakSampleTests;
 			productReference = D2535D252238027D007D737A /* XCAssertNoLeakExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -172,6 +177,9 @@
 				Base,
 			);
 			mainGroup = D2535D082238027A007D737A;
+			packageReferences = (
+				D2782DFD22A76D7600903D31 /* XCRemoteSwiftPackageReference "XCTAssertNoLeak" */,
+			);
 			productRefGroup = D2535D122238027A007D737A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -467,6 +475,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D2782DFD22A76D7600903D31 /* XCRemoteSwiftPackageReference "XCTAssertNoLeak" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tarunon/XCTAssertNoLeak.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D2782E0022A76D8B00903D31 /* XCTAssertNoLeak */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2782DFD22A76D7600903D31 /* XCRemoteSwiftPackageReference "XCTAssertNoLeak" */;
+			productName = XCTAssertNoLeak;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D2535D092238027A007D737A /* Project object */;
 }

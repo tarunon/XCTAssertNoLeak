@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "XCTAssertNoLeak",
+        "repositoryURL": "https://github.com/tarunon/XCTAssertNoLeak.git",
+        "state": {
+          "branch": "master",
+          "revision": "186704db56ed9117f5853dd224db39fe83a79150",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

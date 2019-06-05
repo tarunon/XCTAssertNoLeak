@@ -8,7 +8,7 @@
 
 import XCTest
 import XCTAssertNoLeak
-@testable import XCAssertNoLeakSample
+@testable import XCAssertNoLeakExample
 
 class XCAssertNoLeakExample: XCTestCase {
 
