@@ -17,6 +17,5 @@ Found memory leak objects from traverse object tree using Mirror.
   s.tvos.deployment_target = '9.0'
 
   s.source_files = 'Sources/XCTAssertNoLeak/**/*.{swift}'
-  s.frameworks = "XCTest"
-  s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
+  s.framework = 'XCTest'
 end
