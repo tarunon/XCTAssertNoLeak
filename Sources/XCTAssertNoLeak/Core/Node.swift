@@ -21,12 +21,21 @@ enum Path: Hashable, CustomStringConvertible {
     }
     
     var lazyPath: Path? {
+        #if swift(>=5.1)
+        switch self {
+        case .label(let label) where label.hasPrefix("$__lazy_storage_$_"):
+            return Path.label(label.replacingOccurrences(of: "$__lazy_storage_$_", with: ""))
+        default:
+            return nil
+        }
+        #else
         switch self {
         case .label(let label) where label.hasSuffix(".storage"):
             return Path.label(label.replacingOccurrences(of: ".storage", with: ""))
         default:
             return nil
         }
+        #endif
     }
     
     init(from keyPath: AnyKeyPath) {
