@@ -206,6 +206,37 @@ final class XCTAssertNoLeakTests: XCTestCase {
             []
         )
     }
+    
+    func testIgnoreNSCopying() {
+        class Box {
+            var attributedString: NSAttributedString
+            init(attributedString: NSAttributedString) {
+                self.attributedString = attributedString
+            }
+        }
+        let attributedString = NSAttributedString(string: "test")
+        XCTAssertEqual(
+            assertMessages(Box(attributedString: attributedString)),
+            []
+        )
+    }
+    
+    func testCanCheckNSArrayElements() {
+        class Box {
+            lazy var array = NSArray(array: [self])
+            
+            init() { _ = array }
+        }
+        XCTAssertEqual(
+            assertMessages(Box()),
+            [
+                """
+1 object occured memory leak.
+- self
+"""
+            ]
+        )
+    }
 
     static var allTests = [
         ("testAssertNoLeak", testAssertNoLeak),
@@ -215,5 +246,6 @@ final class XCTAssertNoLeakTests: XCTestCase {
         ("testAssertOptionalProperty", testAssertOptionalProperty),
         ("testAssertLazyProperty", testAssertLazyProperty),
         ("testAssertClosure", testAssertClosure),
+        ("testIgnoreNSCopying", testIgnoreNSCopying)
     ]
 }

@@ -73,6 +73,10 @@ class Node {
         if let object = self.object {
             if discoveredObject.contains(ObjectIdentifier(object)) { return nil }
             discoveredObject.insert(ObjectIdentifier(object))
+            
+            if object is NSCopying {
+                self.object = nil
+            }
         }
         let mirror = Mirror(reflecting: object)
         if let object = object as? OptionalKind {
