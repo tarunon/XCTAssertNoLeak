@@ -39,7 +39,10 @@ public final class AssertNoLeakContext {
     
     deinit {
         if !internalContext.completed {
-            internalContext._assert("context.completion() must call", internalContext.file, internalContext.line)
+            internalContext._assert("context.completion() must call for checking object dealocated", internalContext.file, internalContext.line)
+        }
+        if internalContext.elements.isEmpty {
+            internalContext._assert("context.traverse(_:) must call for begining assert object", internalContext.file, internalContext.line)
         }
         internalContext.completed = true
     }

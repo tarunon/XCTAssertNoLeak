@@ -164,10 +164,17 @@ final class XCTAssertNoLeakTests: XCTestCase {
         }
         XCTAssertEqual(
             assertMessages { context in
+                _ = ViewController()
+                context.completion()
+            },
+            ["context.traverse(_:) must call for begining assert object"]
+        )
+        XCTAssertEqual(
+            assertMessages { context in
                 let vc = ViewController()
                 context.traverse(vc)
             },
-            ["context.completion() must call"]
+            ["context.completion() must call for checking object dealocated"]
         )
         XCTAssertEqual(
             assertMessages { context in
