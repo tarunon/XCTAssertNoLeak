@@ -78,14 +78,16 @@ class Node {
                 self.object = nil
             }
         }
-        let mirror = Mirror(reflecting: object)
-        if let object = object as? OptionalKind {
+        if let customTraversable = (object as? CustomTraversable), customTraversable.ignoreChildren {
+            children = [:]
+        } else if let object = object as? OptionalKind {
             if let value = object.optional, let node = Node(from: value, discoveredObject: &discoveredObject) {
                 children = [Path.optional: node]
             } else {
                 children = [:]
             }
         } else {
+            let mirror = Mirror(reflecting: object)
             let childNodesFromMirror = mirror.children
                 .enumerated()
                 .compactMap { (index, mirrorChild) in
