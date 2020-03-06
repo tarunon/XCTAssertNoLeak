@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'XCTAssertNoLeak'
-  s.version          = '0.2.1'
+  s.version          = '0.3.0'
   s.summary          = 'Provides assert function that check memory leak in Swift.'
   s.description      = <<-DESC
 Provides memory leak test cases for Swift.
