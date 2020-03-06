@@ -99,10 +99,26 @@ final class NodeTests: XCTestCase {
         )
     }
     #endif
+
+    func testIgnoreChildren() {
+        class Foo: CustomTraversable {
+            var value = 1
+            let ignoreChildren = true
+        }
+
+        let node = Node(from: Foo())
+        XCTAssertEqual(
+            node.allPaths(),
+            [
+                [],
+            ]
+        )
+    }
     
     static var allTests = [
         ("testGetReferenceValue", testGetReferenceValue),
         ("testOptionalPath", testOptionalPath),
         ("testLazyPropertyPath", testLazyPropertyPath),
+        ("testIgnoreChildren", testIgnoreChildren),
     ]
 }
