@@ -21,7 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		8A7E68CA263266B7005DBD22 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7E68C726326342005DBD22 /* XCTest.framework */; };
+		8A06A63826328EAD0077236E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A06A63526328D220077236E /* XCTest.framework */; };
 		D202C23C222B9F03009AF2F1 /* OldSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D202C23B222B9F03009AF2F1 /* OldSwiftSupport.swift */; };
 		D202C23F222BA6F6009AF2F1 /* OldSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D202C23D222BA446009AF2F1 /* OldSwiftSupport.swift */; };
 		D2841E7422436FF8002C1369 /* CustomTraversable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2841E7322436FF8002C1369 /* CustomTraversable.swift */; };
@@ -54,7 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8A7E68C726326342005DBD22 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8A06A63526328D220077236E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D202C23B222B9F03009AF2F1 /* OldSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldSwiftSupport.swift; sourceTree = "<group>"; };
 		D202C23D222BA446009AF2F1 /* OldSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldSwiftSupport.swift; sourceTree = "<group>"; };
 		D2841E7322436FF8002C1369 /* CustomTraversable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTraversable.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				8A7E68CA263266B7005DBD22 /* XCTest.framework in Frameworks */,
+				8A06A63826328EAD0077236E /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,10 +90,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8A7E68C626326342005DBD22 /* Frameworks */ = {
+		8A06A63426328D220077236E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8A7E68C726326342005DBD22 /* XCTest.framework */,
+				8A06A63526328D220077236E /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -142,7 +142,7 @@
 				OBJ_7 /* Sources */,
 				OBJ_16 /* Tests */,
 				OBJ_21 /* Products */,
-				8A7E68C626326342005DBD22 /* Frameworks */,
+				8A06A63426328D220077236E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -316,6 +316,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -323,6 +324,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = XCTAssertNoLeak.xcodeproj/XCTAssertNoLeak_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -340,6 +342,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -347,6 +350,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = XCTAssertNoLeak.xcodeproj/XCTAssertNoLeak_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
